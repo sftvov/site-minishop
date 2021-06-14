@@ -1,0 +1,93 @@
+// ._margin-top {
+// 	@include adaptiv-value('margin-top', 160, 138, 115, $md1, $md3, px);
+// 	@media (max-width: $md3+px) {
+// 		margin-top: 47px;
+// 	}
+// }
+
+//↑↑↑ for block under header ↑↑↑
+
+.header {
+	// z-index: 100;
+	// position: fixed;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: $colorLight;
+
+	&__adv-bg {
+		background-color: $colorSecond;
+	}
+
+	&__adv-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 9px 0 8px 0;
+	}
+
+	&__adv-offer {
+		font-size: 1.4em;
+		@include common-value('margin-right', 5);
+	}
+
+	&__adv-button {
+		font-size: 1.2em;
+		padding: 7px 12px;
+	}
+
+	&__main-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: start;
+		@include common-value('padding-top', 6);
+		@include common-value('padding-bottom', 8);
+	}
+
+	&__logo {
+		@include adaptiv-value('width', 265, 265, 135, $md1, $md4, px);
+	}
+
+	&__catalog {
+		@include common-value('margin-left', 10);
+		& ul {
+			display: flex;
+			align-items: center;
+			& li {
+				font-size: 1.6em;
+				@include common-value('margin-right', 5);
+			}
+		}
+	}
+
+	&__user-menu {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+		& a {
+			position: relative;
+			display: flex;
+			align-items: center;
+			font-size: 1.6em;
+			@include common-value('margin-right', 5);
+		}
+	}
+
+	&__basket {
+		line-height: 1;
+		@include adaptiv-value('width', 18, 18, 11, $md1, $md4, px);
+	}
+}
+
+.line-before {
+	&::before {
+		content: '';
+		position: absolute;
+		@include common-value('left', -2.6);
+		width: 1px;
+		height: 16px;
+		background-color: $colorMain;
+		color: $colorLight;
+	}
+}

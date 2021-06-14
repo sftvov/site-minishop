@@ -1,0 +1,44 @@
+.article {
+	&__img-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		& picture {
+			width: 100%;
+			@include common-value('height', 120);
+		}
+		& img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__offer-wrapper {
+		position: absolute;
+		color: $colorLight;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		& a {
+			color: $colorLight;
+			&::before {
+				background-color: $colorLight;
+			}
+		}
+	}
+
+	&__title {
+		text-align: center;
+		font-size: 3.8em;
+		@media (max-width: $md4+px) {
+			font-size: 2em;
+		}
+	}
+
+	&__link {
+		font-size: 2.2em;
+		@include common-value('margin-top', 4);
+	}
+}
