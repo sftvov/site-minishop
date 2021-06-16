@@ -44,7 +44,6 @@
 	&__user-menu {
 		display: flex;
 		align-items: center;
-
 		& > a {
 			position: relative;
 			display: flex;
@@ -93,15 +92,18 @@
 }
 
 .search {
-	height: 0;
+	transition: margin-top 0.5s ease;
 	& input {
+		width: 100%;
 		font-size: 0;
+		height: 0;
+		padding-left: 0;
+		transition: all 0.5s ease;
 	}
 	&.active {
 		@include common-value('margin-top', 6);
-		height: auto;
-		&__input {
-			width: 100%;
+		& input {
+			font-size: 1.6em;
 			height: 40px;
 			padding-left: 20px;
 		}

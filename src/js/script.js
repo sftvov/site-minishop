@@ -1,8 +1,8 @@
 @@include('webp.js');
 
-document.querySelector('.header__line-before').addEventListener('click', a);
-a = function(e) {
-alert (e);
-}
+ahaha = function() {
+  document.querySelector('.header__search').classList.toggle('active');
+};
+document.querySelector('.header__line-before').addEventListener('click', ahaha);
 
 
