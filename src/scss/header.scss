@@ -14,17 +14,18 @@
 	flex-direction: column;
 	width: 100%;
 	background-color: $colorLight;
+	@include common-value('padding-bottom', 8);
 
 	&__main {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		@include common-value('row-gap', 5);
 		@include common-value('padding-top', 6);
-		@include common-value('padding-bottom', 8);
 	}
 
 	&__logo {
-		@include common-value('width', 53);
+		@include adaptiv-value('width', 265, 240, 80, $md1, $minWidth, px);
 	}
 
 	&__catalog {
@@ -43,8 +44,8 @@
 	&__user-menu {
 		display: flex;
 		align-items: center;
-		padding: 20px 0;
-		& a {
+
+		& > a {
 			position: relative;
 			display: flex;
 			align-items: center;
@@ -71,7 +72,7 @@
 	}
 }
 
-.advertisement {
+.offer {
 	background-color: $colorSecond;
 	&__wrapper {
 		display: flex;
@@ -88,5 +89,21 @@
 	&__button {
 		font-size: 1.2em;
 		padding: 7px 12px;
+	}
+}
+
+.search {
+	height: 0;
+	& input {
+		font-size: 0;
+	}
+	&.active {
+		@include common-value('margin-top', 6);
+		height: auto;
+		&__input {
+			width: 100%;
+			height: 40px;
+			padding-left: 20px;
+		}
 	}
 }
