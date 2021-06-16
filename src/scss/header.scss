@@ -15,41 +15,20 @@
 	width: 100%;
 	background-color: $colorLight;
 
-	&__adv-bg {
-		background-color: $colorSecond;
-	}
-
-	&__adv-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 9px 0 8px 0;
-	}
-
-	&__adv-offer {
-		font-size: 1.4em;
-		@include common-value('margin-right', 5);
-	}
-
-	&__adv-button {
-		font-size: 1.2em;
-		padding: 7px 12px;
-	}
-
-	&__main-wrapper {
+	&__main {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: start;
 		@include common-value('padding-top', 6);
 		@include common-value('padding-bottom', 8);
 	}
 
 	&__logo {
-		@include adaptiv-value('width', 265, 265, 135, $md1, $md4, px);
+		@include common-value('width', 53);
 	}
 
 	&__catalog {
+		flex-grow: 1;
 		@include common-value('margin-left', 10);
 		& ul {
 			display: flex;
@@ -64,7 +43,7 @@
 	&__user-menu {
 		display: flex;
 		align-items: center;
-		margin-left: auto;
+		padding: 20px 0;
 		& a {
 			position: relative;
 			display: flex;
@@ -74,20 +53,40 @@
 		}
 	}
 
+	&__line-before {
+		&::before {
+			content: '';
+			position: absolute;
+			@include common-value('left', -2.6);
+			width: 1px;
+			height: 16px;
+			background-color: $colorMain;
+			color: $colorLight;
+		}
+	}
+
 	&__basket {
 		line-height: 1;
 		@include adaptiv-value('width', 18, 18, 11, $md1, $md4, px);
 	}
 }
 
-.line-before {
-	&::before {
-		content: '';
-		position: absolute;
-		@include common-value('left', -2.6);
-		width: 1px;
-		height: 16px;
-		background-color: $colorMain;
-		color: $colorLight;
+.advertisement {
+	background-color: $colorSecond;
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 9px 0 8px 0;
+	}
+
+	&__offer {
+		font-size: 1.4em;
+		@include common-value('margin-right', 5);
+	}
+
+	&__button {
+		font-size: 1.2em;
+		padding: 7px 12px;
 	}
 }
