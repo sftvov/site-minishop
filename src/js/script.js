@@ -1,8 +1,12 @@
 @@include('webp.js');
 
-ahaha = function() {
-  document.querySelector('.header__search').classList.toggle('active');
+let searchField = document.querySelector('.header__search');
+let searchButton = document.querySelector('.header__line-before');
+
+searchAppearance = function() {
+  searchField.classList.toggle('active');
 };
-document.querySelector('.header__line-before').addEventListener('click', ahaha);
+
+searchButton.addEventListener('click', searchAppearance);
 
 
