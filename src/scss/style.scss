@@ -11,7 +11,8 @@ $md3: 767;
 $md4: 539;
 $colorMain: #1a1a1a;
 $colorSecond: #ced3ca;
-$colorMainHover: #292929;
+$colorHover: #808080;
+$colorLinkHover: #facc8f;
 $colorBright: #ffec3e;
 $colorAlert: #ff3451;
 $colorText: #292929;
@@ -35,6 +36,9 @@ body {
 }
 
 a {
+	&:hover {
+		cursor: pointer;
+	}
 	&._underline {
 		&:hover {
 			&::before {
@@ -54,7 +58,7 @@ button {
 	color: $colorLight;
 	&:hover,
 	:active {
-		background-color: $colorMainHover;
+		background-color: $colorHover;
 	}
 	@media (max-width: $md4+px) {
 		padding: 9px 22px;

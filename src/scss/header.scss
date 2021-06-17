@@ -19,7 +19,7 @@
 	&__main {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
+		align-items: stretch;
 		@include common-value('row-gap', 5);
 		@include common-value('padding-top', 6);
 	}
@@ -29,6 +29,7 @@
 	}
 
 	&__catalog {
+		display: flex;
 		flex-grow: 1;
 		@include common-value('margin-left', 10);
 		& ul {
@@ -37,6 +38,11 @@
 			& li {
 				font-size: 1.6em;
 				@include common-value('margin-right', 5);
+				& a {
+					&:hover {
+						color: $colorLinkHover;
+					}
+				}
 			}
 		}
 	}
@@ -44,12 +50,21 @@
 	&__user-menu {
 		display: flex;
 		align-items: center;
-		& > a {
+		& a {
+			font-size: 1.6em;
 			position: relative;
 			display: flex;
 			align-items: center;
-			font-size: 1.6em;
 			@include common-value('margin-right', 5);
+			&:hover {
+				color: $colorLinkHover;
+				& path {
+					fill: $colorLinkHover;
+				}
+			}
+			&.active {
+				color: $colorLinkHover;
+			}
 		}
 	}
 
@@ -71,7 +86,7 @@
 	}
 }
 
-.offer {
+.adv {
 	background-color: $colorSecond;
 	&__wrapper {
 		display: flex;
@@ -80,7 +95,7 @@
 		padding: 9px 0 8px 0;
 	}
 
-	&__offer {
+	&__title {
 		font-size: 1.4em;
 		@include common-value('margin-right', 5);
 	}
@@ -105,7 +120,7 @@
 		& input {
 			font-size: 1.6em;
 			height: 40px;
-			padding-left: 20px;
+			padding: 5px;
 		}
 	}
 }
