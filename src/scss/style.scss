@@ -73,7 +73,7 @@ button {
 		max-width: $md3 - 40 + px;
 	}
 	@media (max-width: $md3+px) {
-		max-width: none;
+		max-width: $md3 + px;
 		padding-left: 10px;
 		padding-right: 10px;
 	}

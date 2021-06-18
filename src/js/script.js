@@ -29,7 +29,14 @@ searchButton.addEventListener('click', searchAppearanceToggle);
 let burger = document.querySelector('.header__burger');
 let menu = document.querySelector('.header__menu');
 
-burger.onclick = function () {
+burger.onclick = function () {  
 	burger.classList.toggle('active');
 	menu.classList.toggle('active');
+  menu.classList.toggle('_container');
+};
+
+window.onresize = function () {  
+	burger.classList.remove('active');
+	menu.classList.remove('active');
+  menu.classList.remove('_container');
 };

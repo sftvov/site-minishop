@@ -18,38 +18,35 @@
 	&__main {
 		position: relative;
 		display: flex;
+		align-items: center;
 		flex-wrap: wrap;
-		align-items: stretch;
 		@include common-value('row-gap', 5);
-		@include common-value('margin-top', 6);
+		@include common-value('padding-top', 6);
 	}
 
 	&__logo {
 		z-index: 10;
 		display: flex;
 		@include adaptiv-value('width', 265, 240, 80, $md1, $minWidth, px);
+		@include common-value('margin-right', 10);
 	}
 
 	&__menu {
 		z-index: 5;
 		transition: right 0.6s ease;
-		display: flex;
-		flex-grow: 1;
-		@include common-value('margin-left', 10);
-
 		@media (max-width: $md3 + px) {
 			position: absolute;
-			background-color: $colorLight;
-			width: 100vw;
-			height: 100vh;
+			top: 0;
 			right: -100vw;
+			height: 100vh;
+			background-color: $colorLight;
 		}
 
 		& ul {
 			display: flex;
 			align-items: center;
 			@media (max-width: $md3+px) {
-				padding-top: 50px;
+				padding-top: 75px;
 				align-items: flex-start;
 				flex-direction: column;
 			}
@@ -57,6 +54,10 @@
 			& li {
 				font-size: 1.6em;
 				@include common-value('margin-right', 5);
+				@media (max-width: $md3+px) {
+					font-size: 2em;
+					margin: 10px 0;
+				}
 				&:hover {
 					color: $colorLinkHover;
 				}
@@ -101,7 +102,7 @@
 		align-items: flex-start;
 		justify-content: space-between;
 		width: 20px;
-		height: 42px;
+		height: 18px;
 		margin-left: 12px;
 		background-color: $colorLight;
 		border-radius: 50%;
@@ -116,20 +117,20 @@
 			transition: all 0.4s;
 		}
 		&::before {
-			top: 12px;
+			top: 0px;
 		}
 		&::after {
-			bottom: 12px;
+			bottom: 0px;
 		}
 		& span {
 		}
 		&.active {
 			&::before {
-				top: 20px;
+				top: 8px;
 				transform: rotate(45deg);
 			}
 			&::after {
-				bottom: 20px;
+				bottom: 8px;
 				transform: rotate(135deg);
 			}
 			& span {
