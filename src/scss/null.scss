@@ -14,6 +14,9 @@
 :active {
 	outline: none;
 }
+a {
+	cursor: pointer;
+}
 a:focus,
 a:active {
 	outline: none;
@@ -49,10 +52,12 @@ button,
 textarea {
 	font-family: $fontFamily;
 	font-weight: inherit;
+	color: inherit;
 }
 input::-ms-clear {
 	display: none;
 }
+
 button {
 	cursor: pointer;
 }

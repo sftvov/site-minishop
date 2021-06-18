@@ -13,43 +13,68 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	background-color: $colorLight;
 	@include common-value('padding-bottom', 8);
 
 	&__main {
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: stretch;
 		@include common-value('row-gap', 5);
-		@include common-value('padding-top', 6);
+		@include common-value('margin-top', 6);
 	}
 
 	&__logo {
+		z-index: 10;
+		display: flex;
 		@include adaptiv-value('width', 265, 240, 80, $md1, $minWidth, px);
 	}
 
-	&__catalog {
+	&__menu {
+		z-index: 5;
+		transition: right 0.6s ease;
 		display: flex;
 		flex-grow: 1;
 		@include common-value('margin-left', 10);
+
+		@media (max-width: $md3 + px) {
+			position: absolute;
+			background-color: $colorLight;
+			width: 100vw;
+			height: 100vh;
+			right: -100vw;
+		}
+
 		& ul {
 			display: flex;
 			align-items: center;
+			@media (max-width: $md3+px) {
+				padding-top: 50px;
+				align-items: flex-start;
+				flex-direction: column;
+			}
+
 			& li {
 				font-size: 1.6em;
 				@include common-value('margin-right', 5);
-				& a {
-					&:hover {
-						color: $colorLinkHover;
-					}
+				&:hover {
+					color: $colorLinkHover;
 				}
 			}
+		}
+
+		&.active {
+			top: 0;
+			right: 0;
 		}
 	}
 
 	&__user-menu {
+		z-index: 10;
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
+		flex: 1;
 		& a {
 			font-size: 1.6em;
 			position: relative;
@@ -68,6 +93,54 @@
 		}
 	}
 
+	&__burger {
+		cursor: pointer;
+		z-index: 10;
+		display: none;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: space-between;
+		width: 20px;
+		height: 42px;
+		margin-left: 12px;
+		background-color: $colorLight;
+		border-radius: 50%;
+		&::before,
+		&::after,
+		& span {
+			position: relative;
+			content: '';
+			width: 16px;
+			height: 2px;
+			background-color: $colorMain;
+			transition: all 0.4s;
+		}
+		&::before {
+			top: 12px;
+		}
+		&::after {
+			bottom: 12px;
+		}
+		& span {
+		}
+		&.active {
+			&::before {
+				top: 20px;
+				transform: rotate(45deg);
+			}
+			&::after {
+				bottom: 20px;
+				transform: rotate(135deg);
+			}
+			& span {
+				width: 0;
+			}
+		}
+		@media (max-width: $md3+px) {
+			display: flex;
+		}
+	}
+
 	&__line-before {
 		&::before {
 			content: '';
@@ -78,11 +151,6 @@
 			background-color: $colorMain;
 			color: $colorLight;
 		}
-	}
-
-	&__basket {
-		line-height: 1;
-		@include adaptiv-value('width', 18, 18, 11, $md1, $md4, px);
 	}
 }
 
@@ -107,20 +175,50 @@
 }
 
 .search {
-	transition: margin-top 0.5s ease;
+	z-index: 5;
+	font-size: 0;
+	transition: margin-top 0.2s ease;
 	& input {
 		width: 100%;
 		font-size: 0;
 		height: 0;
 		padding-left: 0;
-		transition: all 0.5s ease;
+		transition: all 0.6s ease;
+		&:focus,
+		:active {
+			outline: 1px solid $colorLinkHover;
+		}
 	}
 	&.active {
 		@include common-value('margin-top', 6);
+		font-size: 1em;
 		& input {
 			font-size: 1.6em;
-			height: 40px;
+			@include common-value('height', 10);
 			padding: 5px;
+			&::placeholder {
+				color: $colorTextLight;
+			}
 		}
+	}
+}
+
+.basket {
+	position: relative;
+	@include adaptiv-value('width', 18, 18, 11, $md1, $md4, px);
+	&__amount {
+		text-align: center;
+		font-size: 0.8em;
+		position: absolute;
+		@include adaptiv-value('right', -12, -12, -8, $md1, $md4, px);
+		@include adaptiv-value('top', -12, -12, -8, $md1, $md4, px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		@include adaptiv-value('width', 18, 18, 13, $md1, $md4, px);
+		@include adaptiv-value('height', 18, 18, 13, $md1, $md4, px);
+		border-radius: 50%;
+		color: $colorLight;
+		background-color: $colorAlert;
 	}
 }

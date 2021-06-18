@@ -11,8 +11,8 @@ $md3: 767;
 $md4: 539;
 $colorMain: #1a1a1a;
 $colorSecond: #ced3ca;
-$colorHover: #808080;
-$colorLinkHover: #facc8f;
+$colorMainHover: #808080;
+$colorLinkHover: #eea77d;
 $colorBright: #ffec3e;
 $colorAlert: #ff3451;
 $colorText: #292929;
@@ -37,10 +37,7 @@ body {
 
 a {
 	&:hover {
-		cursor: pointer;
-	}
-	&._underline {
-		&:hover {
+		&._underline {
 			&::before {
 				width: 100%;
 			}
@@ -53,12 +50,11 @@ button {
 	font-size: 2em;
 	padding: 20px 61px;
 	border-radius: 8px;
-	cursor: pointer;
 	background-color: $colorMain;
 	color: $colorLight;
 	&:hover,
 	:active {
-		background-color: $colorHover;
+		background-color: $colorMainHover;
 	}
 	@media (max-width: $md4+px) {
 		padding: 9px 22px;
