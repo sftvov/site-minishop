@@ -11,8 +11,7 @@ $md3: 767;
 $md4: 539;
 $colorMain: #1a1a1a;
 $colorSecond: #ced3ca;
-$colorMainHover: #808080;
-$colorLinkHover: #eea77d;
+$colorMainHover: #292929;
 $colorBright: #ffec3e;
 $colorAlert: #ff3451;
 $colorText: #292929;
@@ -36,9 +35,6 @@ body {
 }
 
 a {
-	&:hover {
-		color: $colorLinkHover;
-	}
 	&._underline {
 		&:hover {
 			&::before {
