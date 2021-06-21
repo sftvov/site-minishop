@@ -37,6 +37,7 @@
 		@media (max-width: $md3 + px) {
 			position: absolute;
 			top: 0;
+			width: 100vw;
 			right: -100vw;
 			height: 100vh;
 			background-color: $colorLight;
@@ -46,7 +47,6 @@
 			display: flex;
 			align-items: center;
 			@media (max-width: $md3+px) {
-				padding-top: 75px;
 				align-items: flex-start;
 				flex-direction: column;
 			}
@@ -63,9 +63,7 @@
 				}
 			}
 		}
-
 		&.active {
-			top: 0;
 			right: 0;
 		}
 	}
@@ -176,30 +174,30 @@
 }
 
 .search {
-	z-index: 5;
+	z-index: 20;
 	font-size: 0;
-	transition: margin-top 0.2s ease;
+	transition: margin-top 0.6s ease;
 	& input {
-		width: 100%;
 		font-size: 0;
 		height: 0;
-		padding-left: 0;
+		width: 0;
 		transition: all 0.6s ease;
 		&:focus,
 		:active {
 			outline: 1px solid $colorLinkHover;
 		}
+		&::placeholder {
+			color: $colorTextLight;
+		}
 	}
 	&.active {
-		@include common-value('margin-top', 6);
 		font-size: 1em;
+		@include common-value('margin-top', 6);
 		& input {
 			font-size: 1.6em;
+			width: 100%;
 			@include common-value('height', 10);
 			padding: 5px;
-			&::placeholder {
-				color: $colorTextLight;
-			}
 		}
 	}
 }
