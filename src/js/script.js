@@ -43,17 +43,16 @@ window.onresize = function () {
 
 // ----------------------------------------------------------------------
 
-// parent.insertBefore(item, parent.children[0]);
+let header = document.querySelector('.header');
+window.onresize = function () {
+  if (document.documentElement.clientWidth <= 992) {
+  parent.insertBefore(item, parent.children[0]);
+  } else {
+    parent_original.insertBefore(item, parent.children[0]);
+    
+  }
+}
 
 // ----------------------------------------------------------------------
 
-
-const parent_original = document.querySelector('.header__main');
-const parent = document.querySelector('.header__menu');
-const item =document.querySelector('.header__search');
-window.onresize = function () {
-  var h = parent_original.clientHeight; 
-  var w = item.clientHeight; 
-  parent.style.paddingTop = h + w + 20 + 'px';
-};
 
