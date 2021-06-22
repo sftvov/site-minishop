@@ -2,17 +2,13 @@
 
 // ----------------------------------------------------------------------
 
+let header = document.querySelector('.header');
+let menu = document.querySelector('.header__menu');
+let burger = document.querySelector('.header__burger');
 let searchField = document.querySelector('.header__search');
-let searchButton = document.querySelector('.header__line-before');
 let searchInput = searchField.children[0];
-
-searchAppearanceToggle = function() {
-  searchField.classList.toggle('active');
-  searchButton.classList.toggle('active');
-  if (searchField.classList.contains('active')) {
-    searchInput.focus();
-  }
-};
+let searchButton = document.querySelector('.header__line-before');
+let height = menu.parentNode.clientHeight + 10 + 'px';
 
 searchDisappearance = function(e) {
   if (e.target !== searchInput && e.target !== searchButton) {
@@ -21,38 +17,44 @@ searchDisappearance = function(e) {
   }
 };
 
-document.addEventListener('mousedown', searchDisappearance);
-searchButton.addEventListener('click', searchAppearanceToggle);
-
-// ----------------------------------------------------------------------
-
-let burger = document.querySelector('.header__burger');
-let menu = document.querySelector('.header__menu');
-
-burger.onclick = function () {  
-	burger.classList.toggle('active');
-	menu.classList.toggle('active');
-  menu.classList.toggle('_container');
-};
 
 window.onresize = function () {  
 	burger.classList.remove('active');
 	menu.classList.remove('active');
   menu.classList.remove('_container');
+  header.insertBefore(searchField, header.children[2]);
+  menu.style.paddingTop = 0;
+  searchField.classList.add('_container');
 };
 
-// ----------------------------------------------------------------------
 
-let header = document.querySelector('.header');
-window.onresize = function () {
-  if (document.documentElement.clientWidth <= 992) {
-  parent.insertBefore(item, parent.children[0]);
-  } else {
-    parent_original.insertBefore(item, parent.children[0]);
-    
+burger.onclick = function () {
+	burger.classList.toggle('active');
+	menu.classList.toggle('active');
+  menu.classList.toggle('_container');
+  if (burger.classList.contains('active')) {
+    menu.style.paddingTop = height;
+    menu.insertBefore(searchField, menu.children[0]);
+    searchField.classList.remove('_container');
+    } else {
+    menu.style.paddingTop = 0;
+    header.insertBefore(searchField, header.children[2]);
+    searchField.classList.add('_container');
+  }
+};
+
+searchButton.onclick = () => {
+  searchField.classList.toggle('active');
+  searchButton.classList.toggle('active');
+  if (searchField.classList.contains('active')) {
+    searchInput.focus();
   }
 }
 
-// ----------------------------------------------------------------------
+
+document.addEventListener('mousedown', searchDisappearance);
+
+
+
 
 
