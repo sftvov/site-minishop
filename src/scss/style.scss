@@ -130,3 +130,10 @@ button {
 @import 'article';
 @import 'subscribe';
 @import 'footer';
+
+._tabs-block {
+	display: none;
+	&._active {
+		display: flex;
+	}
+}
